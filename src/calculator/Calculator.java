@@ -19,8 +19,5 @@ public class Calculator extends Application {
         Parent gp = FXMLLoader.load(getClass().getResource("LayoutGUI.fxml"));
         primaryStage.setScene(new Scene(gp, 300, 400));
         primaryStage.show();
-
-
-
     }
 }

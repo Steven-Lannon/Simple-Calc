@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
  */
 public class LayoutGUIController implements Initializable {
 
+    //create variables
     private String crrntArthOp = "DEFAULT";
     private String opd1 = "0";
 
@@ -37,7 +38,7 @@ public class LayoutGUIController implements Initializable {
         // TODO
     }
 
-    @FXML
+    @FXML //switch case to display buttons to text field
     private void addDigit(ActionEvent event) {
 
         Button btn = (Button) event.getSource();
@@ -79,7 +80,7 @@ public class LayoutGUIController implements Initializable {
     }
 
     @FXML
-    private void arthOp(ActionEvent event) {
+    private void arthOp(ActionEvent event) { //switch case to get source for operators 
         switch (((Button) event.getSource()).getText()) {
             case "+":
                 opd1 = txtBox.getText();
@@ -105,7 +106,7 @@ public class LayoutGUIController implements Initializable {
     }
 
     @FXML
-    private void processResult(ActionEvent event) {
+    private void processResult(ActionEvent event) { //switch case to process the result of each operator
         int num1 = Integer.parseInt(opd1);
         int num2 = Integer.parseInt(txtBox.getText());
         switch (crrntArthOp) {
@@ -119,7 +120,7 @@ public class LayoutGUIController implements Initializable {
                 txtBox.setText("" + (num1 * num2));
                 break;
             case "DIVIDE":
-                if (num1 == 0 || num2 == 0) {
+                if (num1 == 0 || num2 == 0) { //if else, with statement to user when dividing by 0
                     txtBox.setText("Cannot divide by 0.");
                 } else {
                     txtBox.setText("" + (num1 / num2));
@@ -130,7 +131,7 @@ public class LayoutGUIController implements Initializable {
 
     @FXML
     private void removeData(ActionEvent event) {
-        if (((Button) event.getSource()).getText().equals("CLEAR")) {
+        if (((Button) event.getSource()).getText().equals("CLEAR")) { //if-else delete/clear statements
             txtBox.clear();
             //  txtBox.setText(String.valueOf(0));
         } else if (((Button) event.getSource()).getText().equals("BACK")) {
