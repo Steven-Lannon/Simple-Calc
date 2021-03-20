@@ -1,0 +1,21 @@
+.mainFxmlClass {
+    -fx-background-color:whitesmoke;
+}
+Button{
+    -fx-background-color:lightgray;
+}
+Button:hover{
+    -fx-background-color:grey;
+}
+#removeData{
+    -fx-background-color:lightcoral;
+}
+#arthOp{
+    -fx-background-color:lightskyblue;
+}
+#removeData:hover{
+    -fx-background-color:red;
+}
+#arthOp:hover{
+    -fx-background-color:DODGERBLUE;
+}
