@@ -99,11 +99,16 @@
                         <Font name="Calibri" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="19.0" layoutY="336.0" mnemonicParsing="false" onAction="#addDigit" prefHeight="57.0" prefWidth="122.0" text="0">
+                <Button layoutX="84.0" layoutY="336.0" mnemonicParsing="false" onAction="#addDigit" prefHeight="57.0" prefWidth="57.0" text="0">
                     <font>
                         <Font name="Calibri" size="27.0" />
                     </font>
                 </Button>
+            <Button layoutX="19.0" layoutY="336.0" mnemonicParsing="false" onAction="#addDigit" prefHeight="57.0" prefWidth="57.0" text=".">
+               <font>
+                  <Font name="Calibri" size="27.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

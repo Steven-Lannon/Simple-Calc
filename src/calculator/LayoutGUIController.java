@@ -1,16 +1,14 @@
 package calculator;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
+
 
 /**
  * FXML Controller class
@@ -75,10 +73,11 @@ public class LayoutGUIController implements Initializable {
             case "0":
                 txtBox.setText(txtBox.getText() + "0");
                 break;
+            case ".":     
+                txtBox.setText(txtBox.getText() + ".");
         }
-
     }
-
+   
     @FXML
     private void arthOp(ActionEvent event) { //switch case to get source for operators 
         switch (((Button) event.getSource()).getText()) {
@@ -101,34 +100,43 @@ public class LayoutGUIController implements Initializable {
                 opd1 = txtBox.getText();
                 crrntArthOp = "DIVIDE";
                 txtBox.clear();
-                break;
+                break;         
         }
     }
 
     @FXML
     private void processResult(ActionEvent event) { //switch case to process the result of each operator
-        int num1 = Integer.parseInt(opd1);
-        int num2 = Integer.parseInt(txtBox.getText());
-        switch (crrntArthOp) {
-            case "ADD":
-                txtBox.setText("" + (num1 + num2));
+        double num1dec = Double.parseDouble(opd1);
+        double num2dec = Double.parseDouble(txtBox.getText());
+       
+        DecimalFormat df = new DecimalFormat("0.############");
+      
+            switch (crrntArthOp) {
+            case "ADD":   
+                txtBox.setText("" + (num1dec+ num2dec));
+              //   txtBox.setText("" + (df.format(num1dec + num2dec)));
                 break;
             case "SUB":
-                txtBox.setText("" + (num1 - num2));
+                txtBox.setText("" + (num1dec - num2dec));
                 break;
             case "MULT":
-                txtBox.setText("" + (num1 * num2));
+                txtBox.setText("" + (num1dec * num2dec));
                 break;
-            case "DIVIDE":
-                if (num1 == 0 || num2 == 0) { //if else, with statement to user when dividing by 0
+            case "DIVIDE":       
+               if (num1dec == 0 || num2dec == 0) { //if else, with statement to user when dividing by 0
                     txtBox.setText("Cannot divide by 0.");
-                } else {
-                    txtBox.setText("" + (num1 / num2));
-                }
+                } 
+                
+               else {
+                   txtBox.setText("" + (num1dec / num2dec));
+                  // txtBox.setText("" + (df.format(num1dec/num2dec)));
+               }
+               
                 break;
         }
     }
-
+        
+    
     @FXML
     private void removeData(ActionEvent event) {
         if (((Button) event.getSource()).getText().equals("CLEAR")) { //if-else delete/clear statements
